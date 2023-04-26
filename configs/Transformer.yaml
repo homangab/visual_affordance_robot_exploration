@@ -1,0 +1,50 @@
+INPUT:
+  SCALE_TO_ZEROONE: False
+  N_FRAMES_PER_VIDEO_TRAIN: 2
+  N_FRAMES_PER_VIDEO_TEST: 2
+  PREPARE_SLICES_TRAIN: True
+MODEL:
+  META_ARCHITECTURE: "AffordanceTransformerModel"
+  INIT_TYPE: "xavier_uniform"
+  AUTOREGRESSIVE:
+    NAME: "AffordanceTransformer"
+    VT:
+      NC: 4
+      NV: 512
+      KERNEL: (7, 1, 1)
+      STRIDE: (2, 1, 1)
+      DE: 128
+      D: 512
+      DA: 128
+      BLOCKS_E: ((1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16))
+      N_HEAD_E: (8, 8, 8, 8, 8, 8, 8, 8)
+      BLOCKS_D: ((1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16),(1,16,16))
+      N_HEAD_D: (8, 8, 8, 8, 8, 8, 8, 8)
+      N_PRIME: 1
+      SHARE_P: False
+SOLVER:
+  IMS_PER_BATCH: 192
+  MAX_ITER: 800000
+  OPTIMIZER_NAME: "rmsprop"
+  LR_G: 0.00002
+  RMSPROP:
+    ALPHA_G: 0.95
+    MOMENTUM_G: 0.9
+  LR_SCHEDULER_NAME: "Identity"
+  CHECKPOINT_PERIOD: 20000
+TEST:
+  EVALUATORS: "BitsEvaluator"
+  VT_SAMPLER:
+    VQ_VAE:
+      CFG: "configs/VQVAE.yaml"
+      ENCODER_WEIGHTS: "/private/home/homanga/affordance/affordance_code/models/vqvae_best/netE/model_final.pth" #"/scratch/hbharadh/experiments/vqvae1/netE/model_0129999.pth"
+      GENERATOR_WEIGHTS: "/private/home/homanga/affordance/affordance_code/models/vqvae_best/netG/model_final.pth" #"/scratch/hbharadh/experiments/vqvae1/netG/model_0129999.pth"
+      CODEBOOK_WEIGHTS: "/private/home/homanga/affordance/affordance_code/models/vqvae_best/netC/model_final.pth" # "/scratch/hbharadh/experiments/vqvae1/netC/model_0129999.pth"
+    N_PRIME: 1
+    NUM_SAMPLES: 1
+DATASETS:
+  TRAIN: ("latent_train",)
+  TEST: ("latent_test",)
+VERSION: 1
+SEED: 29871897
+VIS_PERIOD: 1000000000

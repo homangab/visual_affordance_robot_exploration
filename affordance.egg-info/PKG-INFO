@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: affordance
+Version: 0.1
+Summary: affordance
+Requires-Python: >=3.6
+Provides-Extra: all
