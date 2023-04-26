@@ -26,7 +26,7 @@ Follow the installation instructions for FrankaPy in `https://github.com/iamlab-
 
 ```
 python scripts/bc.py --config-file configs/Transformer.yaml
-``
+```
 
 Please refer to the file `scripts/bc.py` to change configs like epochs, horizon etc. If you want to change policy architectures and other details, modify `scripts/policy.py` as needed. 
 
@@ -34,6 +34,7 @@ Please refer to the file `scripts/bc.py` to change configs like epochs, horizon 
 ### For Training Affordance Model
 
 To train VQVAE
+
 ```
 python tools/train_net.py --config-file configs/VQVAE.yaml --num-gpus 2 OUTPUT_DIR experiments/vqvae
 ```
