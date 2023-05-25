@@ -1,6 +1,8 @@
 # Visual Affordance Prediction for Guiding Robot Exploration
+##### [[Website]](https://sites.google.com/andrew.cmu.edu/affordance-robotics/home) [[Paper]](https://homangab.github.io/papers/affordance_exploration_icra.pdf)
 
 This repo contains code for the paper Visual Affordance Prediction for Guiding Robot Exploration
+
 
 ### Installation 
 
