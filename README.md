@@ -64,7 +64,7 @@ If you find this repository helpful, please consider citing our paper
   Title = {Visual Affordance Prediction for Guiding Robot Exploration}	
 }    	
 ```
-Parts of the repo adapted from [RLkit](https://github.com/rail-berkeley/rlkit) LVT(https://github.com/rakhimovv/lvt) and VideoGPT(https://github.com/wilson1yan/VideoGPT)
+Parts of the repo adapted from [RLkit](https://github.com/rail-berkeley/rlkit) [LVT](https://github.com/rakhimovv/lvt) and [VideoGPT](https://github.com/wilson1yan/VideoGPT)
 
 ### Contact
 If you have any questions about the repo or the paper, please contact Homanga Bharadhwaj at `hbharadh AT cs DOT cmu DOT edu` 
